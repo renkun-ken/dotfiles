@@ -1,5 +1,6 @@
 library(methods)
 options(repos = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN"))
+options(radian.editing_mode = "vi", radian.prompt = "\033[0;34m>\033[0m ")
 
 if (!identical(Sys.getenv("RSTUDIO"), "1")) {
   options(device_args = list())
