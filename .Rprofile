@@ -1,8 +1,6 @@
 library(methods)
 options(repos = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN"))
-options(radian.prompt = "\033[0;34m>\033[0m ", 
-  radian.tab_size = 2, 
-  radian.auto_indentation = FALSE)
+options(radian.prompt = "\033[0;34m>\033[0m ", radian.tab_size = 2)
 
 if (!identical(Sys.getenv("RSTUDIO"), "1")) {
   options(device_args = list())
