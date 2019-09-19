@@ -12,12 +12,15 @@ if (!identical(Sys.getenv("RSTUDIO"), "1")) {
   options(device = function(...) {
     dir <- ".images"
     dir.create(dir, showWarnings = FALSE)
-    cur_file <- file.path(dir, "latest.png")
-    if (file.exists(cur_file)) {
-      bak_file <- file.path(dir, format(Sys.time(), "%Y%m%d-%H%M%S.png"))
-      file.copy(cur_file, bak_file)
+    latest_files <- list.files(dir, "^latest-\\d+\\.png$", full.names = TRUE)
+    if (length(latest_files)) {
+      ids <- gsub("^latest-(\\d+)\\.png$", "\\1", basename(latest_files))
+      mtimes <- format(file.mtime(latest_files), "%Y%m%d-%H%M%OS3")
+      backup_files <- file.path(dir, sprintf("%s-%s.png", mtimes, ids))
+      file.rename(latest_files, backup_files)
     }
+    latest_file <- file.path(dir, "latest-%d.png")
     device_call <- getOption("device_call")
-    device_call(filename = cur_file, ...)
+    device_call(filename = latest_file, ...)
   })
 }
