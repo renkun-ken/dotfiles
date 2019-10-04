@@ -2,6 +2,7 @@ library(methods)
 options(repos = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN"))
 options(radian.prompt = "\033[0;34m>\033[0m ", 
   radian.tab_size = 2, radian.complete_while_typing = FALSE)
+options(datatable.quiet = TRUE)
 
 if (!identical(Sys.getenv("RSTUDIO"), "1")) {
   options(device_args = list())
