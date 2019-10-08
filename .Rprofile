@@ -22,6 +22,7 @@ if (!identical(Sys.getenv("RSTUDIO"), "1")) {
     }
     latest_file <- file.path(dir, "latest-%d.png")
     device_call <- getOption("device_call")
+    file.create(latest_file, showWarnings = FALSE)
     device_call(filename = latest_file, ...)
   })
 }
