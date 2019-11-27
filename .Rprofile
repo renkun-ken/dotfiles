@@ -1,7 +1,8 @@
 library(methods)
 options(repos = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN"))
 options(useFancyQuotes = FALSE)
-options(radian.prompt = "\033[0;34m>\033[0m ", 
+options(lintr.linter_file = ".lintr")
+options(radian.prompt = "\033[0;34m>\033[0m ",
   radian.tab_size = 2, 
   radian.complete_while_typing = FALSE,
   radian.suppress_reticulate_message = TRUE)
