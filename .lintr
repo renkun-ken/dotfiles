@@ -1,1 +1,1 @@
-linters: list(commas_linter, equals_na_linter, function_left_parentheses_linter, infix_spaces_linter, no_tab_linter, seq_linter, spaces_inside_linter, T_and_F_symbol_linter)
+linters: list(commas_linter, equals_na_linter, infix_spaces_linter, no_tab_linter, seq_linter, spaces_inside_linter, T_and_F_symbol_linter)
