@@ -10,4 +10,5 @@ options(languageserver.formatting_style = function(options) {
   styler::tidyverse_style(scope = "indention", indent_by = options$tabSize)
 })
 options(datatable.quiet = TRUE)
-source("~/.vscode-R/init.R")
+source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "HOMEPATH" else "HOME"), ".vscode-R", "init.R"))
+
