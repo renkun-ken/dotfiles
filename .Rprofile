@@ -1,5 +1,6 @@
 library(methods)
 options(repos = c(CRAN = "https://mirrors.tongji.edu.cn/CRAN"))
+options(help_type = "html")
 options(useFancyQuotes = FALSE)
 options(lintr.linter_file = ".lintr")
 options(radian.prompt = "\033[0;34m>\033[0m ",
