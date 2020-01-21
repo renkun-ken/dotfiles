@@ -11,6 +11,7 @@ options(languageserver.formatting_style = function(options) {
   styler::tidyverse_style(scope = "indention", indent_by = options$tabSize)
 })
 options(datatable.quiet = TRUE)
+Sys.setenv(TERM_PROGRAM="vscode")
 options(dev.args = list(width = 960, height = 600))
 source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
 
