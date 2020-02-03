@@ -1,5 +1,5 @@
 library(methods)
-options(repos = c(CRAN = "https://mirrors.tongji.edu.cn/CRAN"))
+options(repos = c(CRAN = "https://mirrors.ustc.edu.cn/CRAN/"))
 options(help_type = "html")
 options(useFancyQuotes = FALSE)
 options(lintr.linter_file = ".lintr")
