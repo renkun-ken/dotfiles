@@ -1,7 +1,19 @@
 library(methods)
 options(repos = c(CRAN = "https://mirrors.ustc.edu.cn/CRAN/"))
-options(help_type = "html")
 options(useFancyQuotes = FALSE)
+options(error = function() {
+  calls <- sys.calls()
+  if (length(calls) >= 2L) {
+    sink(stderr())
+    on.exit(sink(NULL))
+    cat("Backtrace:\n")
+    calls <- rev(calls[-length(calls)])
+    for (i in seq_along(calls)) {
+      cat(i, ": ", sep = "")
+      print(calls[[i]])
+    }
+  }
+})
 options(lintr.linter_file = ".lintr")
 options(radian.prompt = "\033[0;34m>\033[0m ",
   radian.tab_size = 2, 
@@ -12,7 +24,6 @@ options(languageserver.formatting_style = function(options) {
   styler::tidyverse_style(scope = "indention", indent_by = options$tabSize)
 })
 options(datatable.quiet = TRUE)
-Sys.setenv(TERM_PROGRAM="vscode")
+Sys.setenv(TERM_PROGRAM = "vscode")
 options(dev.args = list(width = 960, height = 600))
 source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
-
