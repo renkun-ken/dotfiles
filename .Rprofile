@@ -22,7 +22,9 @@ options(radian.prompt = "\033[0;34m>\033[0m ",
 options(languageserver.formatting_style = function(options) {
   styler::tidyverse_style(scope = "indention", indent_by = options$tabSize)
 })
-options(datatable.quiet = TRUE)
+options(datatable.quiet = TRUE,
+  datatable.print.class = TRUE,
+  datatable.print.keys = TRUE)
 Sys.setenv(TERM_PROGRAM = "vscode")
 options(dev.args = list(width = 960, height = 600))
 source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
