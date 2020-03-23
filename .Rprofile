@@ -13,6 +13,9 @@ options(error = function() {
       print(calls[[i]])
     }
   }
+  if (!interactive()) {
+    q(status = 1)
+  }
 })
 options(radian.prompt = "\033[0;34m>\033[0m ",
   radian.tab_size = 2,
