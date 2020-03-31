@@ -9,8 +9,7 @@ options(error = function() {
     cat("Backtrace:\n")
     calls <- rev(calls[-length(calls)])
     for (i in seq_along(calls)) {
-      cat(i, ": ", sep = "")
-      print(calls[[i]])
+      cat(i, ": ", deparse(calls[[i]], nlines = 1L), "\n", sep = "")
     }
   }
   if (!interactive()) {
