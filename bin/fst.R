@@ -8,11 +8,17 @@ args <- commandArgs(trailingOnly = TRUE)
 
 if (length(args) == 0L) {
   cat("Usage:\n")
+  cat("\tfst -m path\n")
   cat("\tfst path\n")
   cat("\tfst path column1,column2,...\n")
   cat("\tfst path \"[i, j, by = group]\"\n")
   cat("\tfst path column1,column2,... \"[i, j, by = group]\"\n")
   stop("No arguments specified", call. = FALSE)
+}
+
+if (args[[1]] == "-m") {
+  print(fst::metadata_fst(args[[2]]))
+  q(save = "no")
 }
 
 path <- args[[1L]]
