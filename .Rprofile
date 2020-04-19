@@ -12,6 +12,7 @@ options(error = function() {
     }
   }
   if (!interactive()) {
+    message("Exiting on error")
     q(status = 1)
   }
 })
