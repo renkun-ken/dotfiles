@@ -6,3 +6,4 @@ ln -fs $DIR/.vimrc $HOME/.vimrc
 ln -fs $DIR/.tmux.conf $HOME/.tmux.conf
 ln -fs $DIR/.Rprofile $HOME/.Rprofile
 ln -fs $DIR/.lintr $HOME/.lintr
+ln -fs $DIR/.radian_profile $HOME/.radian_profile
