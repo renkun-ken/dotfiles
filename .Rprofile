@@ -24,8 +24,14 @@ options(datatable.quiet = TRUE,
   datatable.print.class = TRUE,
   datatable.print.keys = TRUE)
 
-if (Sys.getenv("RSTUDIO") == "" && Sys.getenv("VSCODE_DEBUG_SESSION") == "") {
+if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("VSCODE_DEBUG_SESSION") == "") {
   Sys.setenv(TERM_PROGRAM = "vscode")
-  options(dev.args = list(width = 960, height = 600))
+  if ("httpgd" %in% .packages(all.available = TRUE)) {
+    options(vsc.plot = FALSE)
+    options(device = function(...) {
+      httpgd::httpgd()
+      .vsc.browser(httpgd::httpgdURL(), viewer = "Beside")
+    })
+  }  
   source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
 }
