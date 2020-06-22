@@ -29,7 +29,7 @@ if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("VSCODE_DEBUG_SES
   if ("httpgd" %in% .packages(all.available = TRUE)) {
     options(vsc.plot = FALSE)
     options(device = function(...) {
-      httpgd::httpgd()
+      httpgd::httpgd(silent = TRUE)
       .vsc.browser(httpgd::httpgdURL(), viewer = "Beside")
     })
   }  
