@@ -24,7 +24,7 @@ options(datatable.quiet = TRUE,
   datatable.print.class = TRUE,
   datatable.print.keys = TRUE)
 
-if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("VSCODE_DEBUG_SESSION") == "") {
+if (interactive() && Sys.getenv("RSTUDIO") == "") {
   Sys.setenv(TERM_PROGRAM = "vscode")
   if ("httpgd" %in% .packages(all.available = TRUE)) {
     options(vsc.plot = FALSE)
