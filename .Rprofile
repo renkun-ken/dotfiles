@@ -26,12 +26,13 @@ options(datatable.quiet = TRUE,
 
 if (interactive() && Sys.getenv("RSTUDIO") == "") {
   Sys.setenv(TERM_PROGRAM = "vscode")
-  if ("httpgd" %in% .packages(all.available = TRUE)) {
-    options(vsc.plot = FALSE)
-    options(device = function(...) {
-      httpgd::httpgd(silent = TRUE)
-      .vsc.browser(httpgd::httpgdURL(), viewer = "Beside")
-    })
-  }  
+# disable httpgd due to https://github.com/microsoft/vscode/issues/102449
+#  if ("httpgd" %in% .packages(all.available = TRUE)) {
+#    options(vsc.plot = FALSE)
+#    options(device = function(...) {
+#      httpgd::httpgd()
+#      .vsc.browser(httpgd::httpgdURL(), viewer = "Beside")
+#    })
+#  }  
   source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
 }
