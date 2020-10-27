@@ -23,6 +23,7 @@ options(languageserver.formatting_style = function(options) {
 options(datatable.quiet = TRUE,
   datatable.print.class = TRUE,
   datatable.print.keys = TRUE)
+options(future.rng.onMisuse = "ignore")
 
 if (interactive() && Sys.getenv("RSTUDIO") == "") {
   Sys.setenv(TERM_PROGRAM = "vscode")
