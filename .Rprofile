@@ -31,8 +31,8 @@ if (interactive() && Sys.getenv("RSTUDIO") == "") {
   if ("httpgd" %in% .packages(all.available = TRUE)) {
     options(vsc.plot = FALSE)
     options(device = function(...) {
-      httpgd::httpgd()
-      .vsc.browser(httpgd::httpgdURL(), viewer = "Beside")
+      httpgd::hgd(silent = TRUE)
+      .vsc.browser(httpgd::hgd_url(), viewer = "Beside")
     })
   }
   source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
