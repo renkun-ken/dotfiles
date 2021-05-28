@@ -1,4 +1,4 @@
-options(repos = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
+options(repos = c(CRAN = "https://mirrors.sjtug.sjtu.edu.cn/cran/"))
 options(useFancyQuotes = FALSE)
 options(error = function() {
   calls <- sys.calls()
