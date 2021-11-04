@@ -27,6 +27,5 @@ options(future.rng.onMisuse = "ignore")
 
 if (interactive() && Sys.getenv("RSTUDIO") == "") {
   Sys.setenv(TERM_PROGRAM = "vscode")
-  options(vsc.rstudioapi = TRUE, vsc.use_httpgd = TRUE)
   source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
 }
