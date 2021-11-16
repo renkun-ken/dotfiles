@@ -1,5 +1,5 @@
 #! /bin/bash
-DIR="$(cd "$(dirname -- "$0")" && pwd)"
+DIR="$(cd "$(dirname -- "$BASH_SOURCE")" && pwd)"
 export PATH=$DIR/bin:$PATH
 
 alias r="radian"
