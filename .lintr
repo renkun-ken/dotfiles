@@ -11,4 +11,9 @@ linters: list(pipe_continuation_linter(),
   seq_linter(),
   spaces_inside_linter(),
   spaces_left_parentheses_linter(),
-  T_and_F_symbol_linter())
+  T_and_F_symbol_linter(),
+  duplicate_argument_linter(),
+  object_usage_linter(),
+  missing_argument_linter(),
+  missing_package_linter(),
+  namespace_linter())
