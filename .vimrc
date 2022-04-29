@@ -5,7 +5,6 @@ syntax on
 call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
