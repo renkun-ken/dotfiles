@@ -1,7 +1,3 @@
-suppressPackageStartupMessages({
-  requireNamespace("fst")
-  requireNamespace("data.table")
-})
 options(width = as.integer(system2("tput", args = "cols", stdout = TRUE)))
 
 args <- commandArgs(trailingOnly = TRUE)
@@ -23,27 +19,28 @@ if (args[[1]] == "-m") {
 
 path <- args[[1L]]
 columns <- NULL
-selector <- NULL
+selectors <- NULL
 if (length(args) == 2L) {
   if (grepl("^\\[.*\\]$", args[[2L]])) {
-    selector <- args[[2L]]
+    selectors <- args[[2L]]
   } else {
     columns <- args[[2L]]
   }
-} else if (length(args) == 3L) {
+} else if (length(args) >= 3L) {
   columns <- args[[2L]]
-  if (grepl("^\\[.*\\]$", args[[3L]])) {
-    selector <- args[[3L]]
-  } else {
-    stop("Invalid selector")
-  }
+  selectors <- args[-c(1L, 2L)]
 }
 
 if (is.character(columns)) {
   columns <- strsplit(args[[2L]], ",", fixed = TRUE)[[1L]]
 }
 
-expr <- parse(text = paste0("data", selector))[[1L]]
-data <- fst::read_fst(path, columns = columns, as.data.table = TRUE)
-data <- eval(expr)
-print(data)
+dt <- fst::read_fst(path, columns = columns, as.data.table = TRUE)
+
+for (selector in selectors) {
+  expr <- parse(text = sprintf("dt%s", selector))[[1]]
+  print(expr)
+  dt <- eval(expr)
+}
+
+print(dt)
