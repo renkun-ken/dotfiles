@@ -1,8 +1,11 @@
-suppressPackageStartupMessages({
-  requireNamespace("knitr")
-  requireNamespace("data.table")
-})
 options(width = as.integer(system2("tput", args = "cols", stdout = TRUE)))
 args <- commandArgs(trailingOnly = TRUE)
-data <- data.table::fread(args[[1]])
-knitr::kable(data, format = "pandoc")
+dt <- data.table::fread(args[[1]])
+
+for (arg in args[-1]) {
+  expr <- parse(text = sprintf("dt%s", arg))[[1]]
+  print(expr)
+  dt <- eval(expr)
+}
+
+knitr::kable(dt, format = "pandoc")
