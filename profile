@@ -2,6 +2,8 @@
 DIR="$(cd "$(dirname "$0")" && pwd)"
 export PATH=$DIR/bin:$PATH
 
+export LC_CTYPE=en_US.UTF-8
+
 alias r="radian"
 alias r_document="Rscript -e 'devtools::document()'"
 alias r_test="Rscript -e 'devtools::test()'"
