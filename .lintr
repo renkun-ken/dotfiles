@@ -13,3 +13,4 @@ linters: list(pipe_continuation_linter(),
   missing_argument_linter(),
   missing_package_linter(),
   namespace_linter())
+
