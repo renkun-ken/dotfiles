@@ -17,6 +17,7 @@ options(error = function() {
   }
 })
 
+options(arrow.unsafe_metadata = TRUE)
 options(languageserver.lint_cache = TRUE)
 options(languageserver.formatting_style = function(options) {
   styler::tidyverse_style(
