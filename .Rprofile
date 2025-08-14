@@ -30,7 +30,7 @@ options(datatable.quiet = TRUE,
   datatable.print.class = TRUE,
   datatable.print.keys = TRUE)
 options(future.rng.onMisuse = "ignore")
-options(future.globals.maxSize = 1024^3)
+options(future.globals.maxSize = 2*1024^3)
 
 if (interactive() && Sys.getenv("RSTUDIO") == "") {
   Sys.setenv(TERM_PROGRAM = "vscode")
