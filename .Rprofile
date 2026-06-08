@@ -32,7 +32,7 @@ options(datatable.quiet = TRUE,
 options(future.rng.onMisuse = "ignore")
 options(future.globals.maxSize = 2*1024^3)
 
-if (interactive() && Sys.getenv("RSTUDIO") == "") {
-  Sys.setenv(TERM_PROGRAM = "vscode")
-  source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
-}
+#if (interactive() && Sys.getenv("RSTUDIO") == "") {
+#  Sys.setenv(TERM_PROGRAM = "vscode")
+#  source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
+#}
